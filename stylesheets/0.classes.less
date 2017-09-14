@@ -1,0 +1,287 @@
+.sqs-edit-mode-active {
+    section:not(*[id*=litigation]) .sqs-block-html:not(:nth-child(1)) {
+        ul,
+        p,
+        h3,
+        h2,
+        h1 {
+            opacity: 1 !important;
+            visibility: visible !important;
+            height: 100% !important;
+        }
+    }
+    .sqs-col-6 {
+        ul,
+        p,
+        h3,
+        h2,
+        h1 {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+            height: 100% !important;
+        }
+    }
+}
+
+.visible-classes {
+    .Index-page-content,
+    .Index-page-image {
+        transition: opacity 0.6s;
+    }
+    &.hidden {
+        overflow: hidden;
+        height: 0 !important;
+        position: absolute;
+        z-index: -3;
+        opacity: 0;
+        visibility: hidden;
+        .Index-page-content,
+        .Index-page-image {
+            opacity: 0;
+        }
+    }
+    &.active {
+        position: relative !important;
+        z-index: 9;
+        opacity: 1;
+        visibility: visible;
+        .Index-page-content,
+        .Index-page-image {
+            opacity: 1;
+        }
+    }
+}
+
+
+
+/* MODALS */
+
+.meta-modals {
+    .sqs-block-horizontalrule {
+        display: none;
+    }
+    hr {
+        display: none;
+    }
+    .sqs-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sqs-col-6 {
+        width: 50% !important;
+        overflow: hidden;
+        .sqs-block-content {
+            transition: box-shadow 300ms;
+            box-shadow: 1px 2px 7px rgba(100, 100, 100, 0.2);
+            padding: 1em;
+            border-radius: 3px;
+            &:hover {
+                opacity: 0.85;
+                box-shadow: 3px 4px 14px rgba(100, 100, 100, 0.3);
+            }
+        }
+        h3 {
+            margin: 0;
+        }
+        @media screen and (max-width:1024px) {
+            width: 100% !important;
+            margin-right: 0%;
+        }
+        @media screen and (min-width:1025px) and (max-width:1200px) {
+            h3 {
+                font-size: 1.4vw;
+            }
+            p {
+                font-size: 1.3vw;
+            }
+        }
+        * {
+            cursor: pointer !important;
+        }
+        p,
+        ul {
+            display: none;
+        }
+        p:nth-child(2) {
+            display: block;
+        }
+        .sqs-row:nth-child(2) {
+            display: none;
+        }
+    }
+}
+
+
+
+/* Links */
+
+a {
+    border-bottom: none !important;
+}
+
+
+
+/* Subnav */
+
+*[id*=subnav] {
+    @breakpoint: 910px;
+    .active-class {
+        &:after {
+            content: "\f0d7";
+            font-family: "Fontawesome";
+            position: absolute;
+            bottom: -70%;
+            left: 50%;
+            font-size: 50px;
+            transform: translate(-50%, 70%);
+            color: @grey;
+        }
+        @media screen and (max-width:@breakpoint) {
+            &:after {
+                content: "";
+            }
+        }
+    }
+    padding-bottom:25px;
+    .Index-page-content {
+        max-width: 100%;
+        padding-top: 20px;
+        background: #404041;
+        padding-bottom: 20px;
+        .sqs-block-html {
+            margin: 0 !important;
+            padding: 0 !important;
+            .sqs-block-content {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            @media screen and (max-width: @breakpoint) {
+                flex-direction:column;
+                padding: 0 0.5em;
+            }
+            li,
+            a {
+                padding: 0 0.5em;
+                font-size: 0.9em;
+                @media screen and (max-width: @breakpoint) {
+                    line-height:44px;
+                    font-weight: 500;
+                    color: grey !important;
+                    &.active {
+                        color: white !important;
+                    }
+                    &:hover {
+                        color: white !important;
+                    }
+                }
+                display:block;
+                position:relative;
+                color:white;
+                border-bottom:0;
+                &[href="/natural-resources"] {
+                    .active-class
+                }
+                &.active {
+                    .active-class;
+                }
+                &.inactive {
+                    &:after {
+                        content: "";
+                    }
+                    color:white;
+                }
+            }
+        }
+    }
+}
+
+
+/* Staff image grid */
+
+.staff-global {
+    .collection-list.grid {
+        min-height: 50vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        &.no-results {
+            &:after {
+                margin-left: 1em;
+                content: "No Results";
+                opacity: 0.5;
+                font-weight: 500;
+            }
+        }
+        .hentry {
+            transition: opacity 0.35s 0.15s;
+            width: 25%;
+            cursor: pointer;
+            @media screen and (min-width: 1101px) {
+                .media-wrapper {
+                    height:16vw;
+                    max-height: 220px;
+                }
+            }
+            @media screen and (min-width:769px) and (max-width:1100px) {
+                width: 33.33%;
+                .media-wrapper {
+                    height: 22vw;
+                    max-height: 250px;
+                }
+            }
+            @media screen and (min-width:501px) and (max-width:768px) {
+                width: 50%;
+                .media-wrapper {
+                    max-height: 250px;
+                    height: 35vw;
+                }
+            }
+            @media screen and (max-width:500px) {
+                width: 100%;
+            }
+            &.hide {
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+            }
+            .collection-item-inner {
+                padding-right: 1.5em;
+                padding-bottom: 1.5em;
+                .media-wrapper {
+                    overflow: hidden;
+                    margin: 0 auto;
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                .content {
+                    text-align: center;
+                    .meta-title {
+                        padding: 0.5em 0;
+                        font-size: 1.2em;
+                        line-height: 1em;
+                    }
+                    .meta-description {
+                        p:nth-child(n+2) {
+                            margin: 0 !important;
+                            line-height: 1em;
+                        }
+                        p:nth-child(n+3) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

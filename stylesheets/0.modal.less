@@ -1,0 +1,84 @@
+/*************** MODAL **************/
+
+.modal-body {
+    .collection-item-inner {
+        .media-wrapper {
+            width: 185px;
+            padding-right: 1em;
+            @media screen and (min-width: 742px) {
+                float:left;
+            }
+            img {
+                height: auto;
+                width: 100%;
+            }
+        }
+        .content {
+            p {
+                font-size: 0.9em;
+                line-height: 1.3em;
+            }
+        }
+    }
+    opacity:0;
+    visibility:hidden;
+    z-index:-3;
+    transition:opacity 0.4s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 9999;
+    }
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    overflow-y:scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    width:100%;
+    background:rgba(10, 10, 10, 0.5);
+    z-index:99999;
+    height:100vh;
+    display:flex;
+    align-items:flex-start;
+    @media screen and (max-width:1024px) {
+        align-items: flex-start;
+    }
+    justify-content:center;
+    .modal-content-wrapper {
+        margin-top: 12vw;
+        margin-bottom: 12vw;
+        max-width: 1024px;
+        padding: 20px;
+        background: white;
+        position: relative;
+        .close {
+            opacity: 0.2;
+            text-align: right;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            z-index: 9999;
+            top: 20px;
+        }
+        .modal-content {
+            a {
+                color: @teal !important;
+                font-weight: 500;
+            }
+            p:nth-child(2) {
+                display: none;
+            }
+            .hentry {
+                p:nth-child(2) {
+                    display: block;
+                }
+            }
+            .sqs-col-6 {
+                width: 100%;
+            }
+        }
+    }
+}
