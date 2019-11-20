@@ -132,6 +132,74 @@
     }
 }
 
+#econ-social-policy-stories {
+    .econ__list{
+      display:flex;
+      margin-left:-0.5em;
+    }
+    .econ__list-item{
+      flex:10em 1 1;
+      padding:0.5em;
+      overflow:hidden;
+      .econ__content{
+        position:relative;
+        height:300px;
+        .econ__media{
+          height:100%;
+          background-repeat:no-repeat;
+          background-size:cover;
+          background-position:50% 50%;
+        }
+        .econ__title-wrapper{
+          transition:opacity 0.5s;
+          position:absolute;
+          top:50%;
+          left:0;
+          right:0;
+          background:rgba(10,10,10,0.5);
+          padding:0.5em;
+          height:60px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          .econ__title-text{
+            color:white;
+            text-align:center;
+          }
+        }
+        .econ__excerpt{
+          transition:opacity 0.5s;
+          background:rgba(10,10,10,0.8);
+          height:100%;
+          position:absolute;
+          top:0;
+          left:0;
+          right:0;
+          bottom:0;
+          opacity:0;
+          visibility:hidden;
+          display:flex;
+          align-items:center;
+          p{
+            color:white;
+            padding:0.5em;
+          }
+        }
+      }
+      
+      &:hover{
+        .econ__title-wrapper{
+          opacity:0;
+          visibility:hidden;
+        }
+        .econ__excerpt{
+          opacity:1;
+          visibility:visible;
+        }
+      }
+    }
+  }
+
 
 /************** STAFF ***************/
 
